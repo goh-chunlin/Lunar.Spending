@@ -134,18 +134,6 @@ SELECT TOP 1 [Description], [Currency], [Amount] FROM [dbo].[Spendings] ORDER BY
 
 </value>
   </data>
-  <data name="dbo_UpdateSpendingTest_PosttestAction.SqlScript" xml:space="preserve">
-    <value>/*
-Add SQL statements here that you want to run after 
-the test script is run.
-
-In the lower pane, you can add test conditions that verify 
-whether the results of your SQL statements match what 
-you expect.
-*/
-DELETE FROM [dbo].[Spendings]
-DELETE FROM [dbo].[AuditLogs]</value>
-  </data>
   <data name="dbo_UpdateSpendingTest_PretestAction.SqlScript" xml:space="preserve">
     <value>/*
 Add SQL statements here that you want to run before
@@ -155,12 +143,24 @@ In the lower pane, you can add test conditions that verify
 whether the results of your SQL statements match what 
 you expect.
 */
-DELETE FROM [dbo].[Spendings]
-DELETE FROM [dbo].[AuditLogs]
+TRUNCATE TABLE [dbo].[Spendings]
+TRUNCATE TABLE [dbo].[AuditLogs]
 
 INSERT INTO [dbo].[Spendings]
 VALUES
 ('Test Description', 10.50, GETDATE(), 'SGD')</value>
+  </data>
+  <data name="dbo_UpdateSpendingTest_PosttestAction.SqlScript" xml:space="preserve">
+    <value>/*
+Add SQL statements here that you want to run after 
+the test script is run.
+
+In the lower pane, you can add test conditions that verify 
+whether the results of your SQL statements match what 
+you expect.
+*/
+TRUNCATE TABLE [dbo].[Spendings]
+TRUNCATE TABLE [dbo].[AuditLogs]</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

@@ -39,33 +39,19 @@ namespace TestDbCore
         {
             Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction dbo_UpdateSpendingTest_TestAction;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UnitTestUpdateSpending));
+            Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.ScalarValueCondition CheckCurrency;
             Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction dbo_UpdateSpendingTest_PretestAction;
             Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction dbo_UpdateSpendingTest_PosttestAction;
-            Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.ScalarValueCondition CheckCurrency;
             this.dbo_UpdateSpendingTestData = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestActions();
             dbo_UpdateSpendingTest_TestAction = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction();
+            CheckCurrency = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.ScalarValueCondition();
             dbo_UpdateSpendingTest_PretestAction = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction();
             dbo_UpdateSpendingTest_PosttestAction = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction();
-            CheckCurrency = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.ScalarValueCondition();
             // 
             // dbo_UpdateSpendingTest_TestAction
             // 
             dbo_UpdateSpendingTest_TestAction.Conditions.Add(CheckCurrency);
             resources.ApplyResources(dbo_UpdateSpendingTest_TestAction, "dbo_UpdateSpendingTest_TestAction");
-            // 
-            // dbo_UpdateSpendingTestData
-            // 
-            this.dbo_UpdateSpendingTestData.PosttestAction = dbo_UpdateSpendingTest_PosttestAction;
-            this.dbo_UpdateSpendingTestData.PretestAction = dbo_UpdateSpendingTest_PretestAction;
-            this.dbo_UpdateSpendingTestData.TestAction = dbo_UpdateSpendingTest_TestAction;
-            // 
-            // dbo_UpdateSpendingTest_PretestAction
-            // 
-            resources.ApplyResources(dbo_UpdateSpendingTest_PretestAction, "dbo_UpdateSpendingTest_PretestAction");
-            // 
-            // dbo_UpdateSpendingTest_PosttestAction
-            // 
-            resources.ApplyResources(dbo_UpdateSpendingTest_PosttestAction, "dbo_UpdateSpendingTest_PosttestAction");
             // 
             // CheckCurrency
             // 
@@ -76,6 +62,20 @@ namespace TestDbCore
             CheckCurrency.NullExpected = false;
             CheckCurrency.ResultSet = 2;
             CheckCurrency.RowNumber = 1;
+            // 
+            // dbo_UpdateSpendingTest_PretestAction
+            // 
+            resources.ApplyResources(dbo_UpdateSpendingTest_PretestAction, "dbo_UpdateSpendingTest_PretestAction");
+            // 
+            // dbo_UpdateSpendingTest_PosttestAction
+            // 
+            resources.ApplyResources(dbo_UpdateSpendingTest_PosttestAction, "dbo_UpdateSpendingTest_PosttestAction");
+            // 
+            // dbo_UpdateSpendingTestData
+            // 
+            this.dbo_UpdateSpendingTestData.PosttestAction = dbo_UpdateSpendingTest_PosttestAction;
+            this.dbo_UpdateSpendingTestData.PretestAction = dbo_UpdateSpendingTest_PretestAction;
+            this.dbo_UpdateSpendingTestData.TestAction = dbo_UpdateSpendingTest_TestAction;
         }
 
         #endregion

@@ -38,26 +38,27 @@ namespace TestDbCore
         private void InitializeComponent()
         {
             Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction dbo_SelectSpendingsTest_TestAction;
-            Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction dbo_SelectSpendingsTest_PretestAction;
-            Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction dbo_SelectSpendingsTest_PosttestAction;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UnitTestSelectSpendings));
             Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.RowCountCondition CheckRowCount;
+            Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction dbo_SelectSpendingsTest_PretestAction;
+            Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction dbo_SelectSpendingsTest_PosttestAction;
             this.dbo_SelectSpendingsTestData = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestActions();
             dbo_SelectSpendingsTest_TestAction = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction();
+            CheckRowCount = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.RowCountCondition();
             dbo_SelectSpendingsTest_PretestAction = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction();
             dbo_SelectSpendingsTest_PosttestAction = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction();
-            CheckRowCount = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.RowCountCondition();
-            // 
-            // dbo_SelectSpendingsTestData
-            // 
-            this.dbo_SelectSpendingsTestData.PosttestAction = dbo_SelectSpendingsTest_PosttestAction;
-            this.dbo_SelectSpendingsTestData.PretestAction = dbo_SelectSpendingsTest_PretestAction;
-            this.dbo_SelectSpendingsTestData.TestAction = dbo_SelectSpendingsTest_TestAction;
             // 
             // dbo_SelectSpendingsTest_TestAction
             // 
             dbo_SelectSpendingsTest_TestAction.Conditions.Add(CheckRowCount);
             resources.ApplyResources(dbo_SelectSpendingsTest_TestAction, "dbo_SelectSpendingsTest_TestAction");
+            // 
+            // CheckRowCount
+            // 
+            CheckRowCount.Enabled = true;
+            CheckRowCount.Name = "CheckRowCount";
+            CheckRowCount.ResultSet = 1;
+            CheckRowCount.RowCount = 1;
             // 
             // dbo_SelectSpendingsTest_PretestAction
             // 
@@ -67,12 +68,11 @@ namespace TestDbCore
             // 
             resources.ApplyResources(dbo_SelectSpendingsTest_PosttestAction, "dbo_SelectSpendingsTest_PosttestAction");
             // 
-            // CheckRowCount
+            // dbo_SelectSpendingsTestData
             // 
-            CheckRowCount.Enabled = true;
-            CheckRowCount.Name = "CheckRowCount";
-            CheckRowCount.ResultSet = 1;
-            CheckRowCount.RowCount = 1;
+            this.dbo_SelectSpendingsTestData.PosttestAction = dbo_SelectSpendingsTest_PosttestAction;
+            this.dbo_SelectSpendingsTestData.PretestAction = dbo_SelectSpendingsTest_PretestAction;
+            this.dbo_SelectSpendingsTestData.TestAction = dbo_SelectSpendingsTest_TestAction;
         }
 
         #endregion

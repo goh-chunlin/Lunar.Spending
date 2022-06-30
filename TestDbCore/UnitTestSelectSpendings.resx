@@ -117,17 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="dbo_SelectSpendingsTest_PosttestAction.SqlScript" xml:space="preserve">
-    <value>/*
-Add SQL statements here that you want to run after 
-the test script is run.
+  <data name="dbo_SelectSpendingsTest_TestAction.SqlScript" xml:space="preserve">
+    <value>-- database unit test for dbo.SelectSpendings
+DECLARE @RequiredCurrency AS VARCHAR (3);
 
-In the lower pane, you can add test conditions that verify 
-whether the results of your SQL statements match what 
-you expect.
-*/
-DELETE FROM [dbo].[ExchangeRates]
-DELETE FROM [dbo].[Spendings]</value>
+SELECT @RequiredCurrency = 'MYR';
+
+EXECUTE [dbo].[SelectSpendings] @RequiredCurrency;
+
+</value>
   </data>
   <data name="dbo_SelectSpendingsTest_PretestAction.SqlScript" xml:space="preserve">
     <value>/*
@@ -138,8 +136,8 @@ In the lower pane, you can add test conditions that verify
 whether the results of your SQL statements match what 
 you expect.
 */
-DELETE FROM [dbo].[ExchangeRates]
-DELETE FROM [dbo].[Spendings]
+TRUNCATE TABLE [dbo].[ExchangeRates]
+TRUNCATE TABLE [dbo].[Spendings]
 
 INSERT INTO [dbo].[ExchangeRates]
 VALUES
@@ -153,15 +151,17 @@ INSERT INTO [dbo].[Spendings]
 VALUES
 ('Test Description', 10.50, GETDATE(), 'SGD')</value>
   </data>
-  <data name="dbo_SelectSpendingsTest_TestAction.SqlScript" xml:space="preserve">
-    <value>-- database unit test for dbo.SelectSpendings
-DECLARE @RequiredCurrency AS VARCHAR (3);
+  <data name="dbo_SelectSpendingsTest_PosttestAction.SqlScript" xml:space="preserve">
+    <value>/*
+Add SQL statements here that you want to run after 
+the test script is run.
 
-SELECT @RequiredCurrency = 'MYR';
-
-EXECUTE [dbo].[SelectSpendings] @RequiredCurrency;
-
-</value>
+In the lower pane, you can add test conditions that verify 
+whether the results of your SQL statements match what 
+you expect.
+*/
+TRUNCATE TABLE [dbo].[ExchangeRates]
+TRUNCATE TABLE [dbo].[Spendings]</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

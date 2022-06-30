@@ -41,22 +41,22 @@ namespace TestDbCore
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UnitTestAddSpending));
             Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.ScalarValueCondition CheckTransactionStatusCode;
             Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.ScalarValueCondition CheckMessageCode;
-            Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction dbo_AddSpendingTest_PretestAction;
-            Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction dbo_AddSpendingTest_PosttestAction;
             Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.RowCountCondition CheckRowCount;
             Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.ScalarValueCondition CheckDescription;
             Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.ScalarValueCondition CheckCurrency;
             Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.ScalarValueCondition CheckAmount;
+            Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction dbo_AddSpendingTest_PretestAction;
+            Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction dbo_AddSpendingTest_PosttestAction;
             this.dbo_AddSpendingTestData = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestActions();
             dbo_AddSpendingTest_TestAction = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction();
             CheckTransactionStatusCode = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.ScalarValueCondition();
             CheckMessageCode = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.ScalarValueCondition();
-            dbo_AddSpendingTest_PretestAction = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction();
-            dbo_AddSpendingTest_PosttestAction = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction();
             CheckRowCount = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.RowCountCondition();
             CheckDescription = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.ScalarValueCondition();
             CheckCurrency = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.ScalarValueCondition();
             CheckAmount = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.Conditions.ScalarValueCondition();
+            dbo_AddSpendingTest_PretestAction = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction();
+            dbo_AddSpendingTest_PosttestAction = new Microsoft.Data.Tools.Schema.Sql.UnitTesting.SqlDatabaseTestAction();
             // 
             // dbo_AddSpendingTest_TestAction
             // 
@@ -87,20 +87,6 @@ namespace TestDbCore
             CheckMessageCode.NullExpected = false;
             CheckMessageCode.ResultSet = 1;
             CheckMessageCode.RowNumber = 1;
-            // 
-            // dbo_AddSpendingTest_PretestAction
-            // 
-            resources.ApplyResources(dbo_AddSpendingTest_PretestAction, "dbo_AddSpendingTest_PretestAction");
-            // 
-            // dbo_AddSpendingTest_PosttestAction
-            // 
-            resources.ApplyResources(dbo_AddSpendingTest_PosttestAction, "dbo_AddSpendingTest_PosttestAction");
-            // 
-            // dbo_AddSpendingTestData
-            // 
-            this.dbo_AddSpendingTestData.PosttestAction = dbo_AddSpendingTest_PosttestAction;
-            this.dbo_AddSpendingTestData.PretestAction = dbo_AddSpendingTest_PretestAction;
-            this.dbo_AddSpendingTestData.TestAction = dbo_AddSpendingTest_TestAction;
             // 
             // CheckRowCount
             // 
@@ -138,6 +124,20 @@ namespace TestDbCore
             CheckAmount.NullExpected = false;
             CheckAmount.ResultSet = 2;
             CheckAmount.RowNumber = 1;
+            // 
+            // dbo_AddSpendingTest_PretestAction
+            // 
+            resources.ApplyResources(dbo_AddSpendingTest_PretestAction, "dbo_AddSpendingTest_PretestAction");
+            // 
+            // dbo_AddSpendingTest_PosttestAction
+            // 
+            resources.ApplyResources(dbo_AddSpendingTest_PosttestAction, "dbo_AddSpendingTest_PosttestAction");
+            // 
+            // dbo_AddSpendingTestData
+            // 
+            this.dbo_AddSpendingTestData.PosttestAction = dbo_AddSpendingTest_PosttestAction;
+            this.dbo_AddSpendingTestData.PretestAction = dbo_AddSpendingTest_PretestAction;
+            this.dbo_AddSpendingTestData.TestAction = dbo_AddSpendingTest_TestAction;
         }
 
         #endregion
